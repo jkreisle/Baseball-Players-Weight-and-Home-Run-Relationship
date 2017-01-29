@@ -48,8 +48,8 @@ __Solution__: uniform spacing throughout the code
 
 ## Resources
 
-1) https://github.com/PMSI-AlignAlytics/dimple/wiki
-2) http://dimplejs.org/examples_index.html
-3) http://dimplejs.org/advanced_examples_index.html
-4) https://bl.ocks.org/mbostock/3887118
-5) http://christopheviau.com/d3list/gallery.html
+    1) https://github.com/PMSI-AlignAlytics/dimple/wiki
+    2) http://dimplejs.org/examples_index.html
+    3) http://dimplejs.org/advanced_examples_index.html
+    4) https://bl.ocks.org/mbostock/3887118
+    5) http://christopheviau.com/d3list/gallery.html
