@@ -20,6 +20,10 @@ In addition, I was able to add a reference line to the chart where the average p
 
 Improvements in stylistic elements were accomplished by ensuring uniformity in spacing throughout the code. 
 
+## Objective
+
+The goal of this project is to get a quick sense of the relationship between a players weight and home run count. Making the legend interactive allows the user to play around with the data and think about more relatonships to explore...
+
 ## Resources
 
 	1) https://github.com/PMSI-AlignAlytics/dimple/wiki
