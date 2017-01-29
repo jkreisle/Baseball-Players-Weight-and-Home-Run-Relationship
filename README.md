@@ -1,6 +1,30 @@
-# Summary
+## Objective
 
-I chose to create a visualization using d3.js and dimple.js on a dataset of baseball statistics. The data tracks a players name, handedness (right, left, or both handed), height, weight, batting average, and home runs. The visualization helps to show that players with weights around average weight scored the most amount of home runs.
+Determine the relationship between a baseball player's weight and home runs
+
+###Skills applied
+
+- Javascript, in particular d3.js and dimple.js
+- CSS
+- Github collaboration
+- Usability: Made interactive graph and legend so user can more easily explore data
+
+## Summary
+
+I wanted to explore a baseball dataset containing:
+
+- player's name
+- handedness (right, left, both)
+- height
+- weight
+- batting average
+- home runs. 
+
+I chose to create a visualization using d3.js and dimple.js because it allowed me to easily chart csv data and communicate my findings .
+
+## Findings
+
+Players with weights around average weight scored the most amount of home runs.
 
 ## Design
 
@@ -10,24 +34,20 @@ The chart's x axis tracks weight in pounds, and the y axis tracks home run count
 
 The feedback I received on my original chart focused on three main suggestions:
 
-	1) The need for more interactivity
-	2) A reference line or some other visual showing trend
-	3) Improvements to stylistic elements in the code and css
+- The need for more interactivity
 
-I was able to improve interactivity by adding buttons to the chart's legend, enabling a user to filter the data based on a players handedness. In addition, a tooltip appears when hovering over each dot, revealing the player's name and additional statistics. 
+    Solution: I chose to create a visualization using d3.js and dimple.js.
+- A reference line or some other visual showing trend
 
-In addition, I was able to add a reference line to the chart where the average players weight occurs. This is at 187 pounds.
+    Solution: I added a reference line to the chart where the average players weight occurs. This is at 187 pounds.
+- Improvements to stylistic elements in the code and css
 
-Improvements in stylistic elements were accomplished by ensuring uniformity in spacing throughout the code. 
-
-## Objective
-
-The goal of this project is to get a quick sense of the relationship between a players weight and home run count. Making the legend interactive allows the user to play around with the data and think about more relatonships to explore...
+    Solution: Uniform spacing throughout the code
 
 ## Resources
 
-	1) https://github.com/PMSI-AlignAlytics/dimple/wiki
-	2) http://dimplejs.org/examples_index.html
-	3) http://dimplejs.org/advanced_examples_index.html
-	4) https://bl.ocks.org/mbostock/3887118
-	5) http://christopheviau.com/d3list/gallery.html
+    1) https://github.com/PMSI-AlignAlytics/dimple/wiki
+    2) http://dimplejs.org/examples_index.html
+    3) http://dimplejs.org/advanced_examples_index.html
+    4) https://bl.ocks.org/mbostock/3887118
+    5) http://christopheviau.com/d3list/gallery.html
