@@ -1,166 +1,134 @@
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <!DOCTYPE html>
-  <meta charset="utf-8">
-  <style>
+<!DOCTYPE html>
+<div id="chartContainer">
+    <meta charset="utf-8">
+    <style>
 
-  body {
-    font: 12px sans-serif;
-  }
+        body {
+            font: 12px sans-serif;
+        }
 
-  .axis path,
-  .axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
-  }
+        heading {
+            text-align: center;
+            color: #4169E1;
+            font: 15px sans-serif;
 
+        }
 
-  .dot {
-    fill-opacity: 0.75;
-    stroke: #000;
-  }
+        .axis line,
+        .axis path {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
 
-  div.tooltip {   
-    position: absolute;           
-    text-align: center;           
-    width: 70px;                  
-    height: 28px;                 
-    padding: 2px;             
-    font: 12px sans-serif;        
-    background: lightsteelblue;   
-    border: 0px;      
-    border-radius: 8px;           
-    pointer-events: none;         
-  }
+        .dot {
+            stroke: #000;
+            fill-opacity: 0.70;
+        }
 
-
-  </style>
-  <body>
-  <script src="//d3js.org/d3.v3.min.js"></script>
-  <script>
-
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
-      width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
-
-
-  var x = d3.scale.linear()
-      .range([0, width]);
-
-  var y = d3.scale.linear()
-      .range([height, 0]);
-
-  var r = d3.scale.sqrt()
-      .domain([0, 1e6])
-      .range([0, 10]);
-
-  var color = d3.scale.category10();
-
-  var xAxis = d3.svg.axis()
-      .scale(x)
-      .orient("bottom");
-
-  var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient("left");
-
-  var div = d3.select("body").append("div")   
-      .attr("class", "tooltip")               
-      .style("opacity", 0);
-
-
-  var svg = d3.select("body").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-
-  d3.csv("baseball_data.csv", function(error, data) {
-    if (error) throw error;
-
-    data.forEach(function(d) {
-      d.weight = +d.weight;
-      d.HR = +d.HR;
-      d.height = +d.avg;
-      
-
-    });
-
-    x.domain(d3.extent(data, function(d) { return d.weight; })).nice();
-    y.domain(d3.extent(data, function(d) { return d.HR; })).nice();
-    r.domain(d3.extent(data, function(d) { return d.avg; })).nice();
-
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis)
-      .append("text")
-        .attr("class", "label")
-        .attr("x", width)
-        .attr("y", -6)
-        .style("text-anchor", "end")
-        .text("Weight (lbs.)");
-
-    svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis)
-      .append("text")
-        .attr("class", "label")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Home Runs")
-
-    svg.selectAll(".dot")
-        .data(data)
-      .enter().append("circle")
-        .attr("class", "dot")
-        .attr("r", function(d) { return r(d.avg); })
-        .attr("cx", function(d) { return x(d.weight); })
-        .attr("cy", function(d) { return y(d.HR); })
-        .style("fill", function(d) { return color(d.handedness); })
-        .on("mouseover", function(d) {      
-              div.transition()        
-                  .duration(200)      
-                  .style("opacity", .9);      
-              div .html(d.name)  
-                  .style("left", (d3.event.pageX) + "px")     
-                  .style("top", (d3.event.pageY - 28) + "px");    
-              })                  
-          .on("mouseout", function(d) {       
-              div.transition()        
-                  .duration(500)      
-                  .style("opacity", 0);   
-          });
-
-
-
-    var legend = svg.selectAll(".legend")
-        .data(color.domain())
-      .enter().append("g")
-        .attr("class", "legend")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
-    legend.append("rect")
-        .attr("x", width - 18)
-        .attr("width", 18)
-        .attr("height", 18)
-        .style("fill", color);
-
-    legend.append("text")
-        .attr("x", width - 24)
-        .attr("y", 9)
-        .attr("dy", ".35em")
-        .style("text-anchor", "end")
-        .text(function(d) { return d; });
-
-  });
-
-  </script>
-    </body>
-  </html>
+    </style>
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+    <script type="text/javascript">
+        d3.select('body')
+            .append('heading')
+            .text('The Relationship Between Weight and Home Runs');
+        d3.select('body')
+            .append('p')
+            .text("A baseball dataset was tested for relationships between statisticial categories. The categories include: player's name, handedness (right handed, left handed, or both handed), height (inches), weight (pounds), batting average, and home runs. There are 305 players in the dataset, all with 50 or more home runs hit. The average player's weight is 187 pounds, illustrated by the green reference line on the chart. It was found that players with weights around this average scored the most amount of home runs. The visualization charts this relationship. Hovering over each dot, you are given the player's name, batting average (bavg), handedness, weight, and number of home runs. The dots are color coded based on the information in the legend, where you can click each category to filter the data. Try it out!");
+          
+        var svg = dimple.newSvg('#chartContainer', 1200, 500);
+        // Load in csv file and convert string to integer
+        d3.csv('baseball_data.csv', function (error, data) {
+            if (error) {
+                throw error;
+            }
+            data.forEach(function (d) {
+                d.weight = +d.weight;
+                d.HR = +d.HR;
+                d.bavg = +d.bavg;
+                d.height = +d.height;
+            });
+            // Creates the chart 
+            var chart = new dimple.chart(svg, data);
+            chart.setBounds(60, 30, 800, 417);
+            // Creates x and y axis with parameters
+            var xAxis = chart.addMeasureAxis('x', 'weight');
+            var yAxis = chart.addMeasureAxis('y', 'HR');
+            xAxis.overrideMin = 140;
+            xAxis.overrideMax = 235;
+            xAxis.title = 'Weight (lbs.)';
+            yAxis.overrideMin = 50;
+            yAxis.title = 'Home Runs';
+            // Add bubbles of 'name' data points and color by 'handedness'
+            chart.addSeries([
+                'name', 'bavg', 'handedness'
+            ], dimple.plot.bubble);
+            // Add reference line showing average weight
+            svg.append('line')
+                .attr("x1", 438)
+                .attr("y1", 30)
+                .attr("x2", 438)
+                .attr("y2", 448)
+                .style("stroke-dasharray", "5,5")
+                .style("stroke", "green")
+                .style("opacity", 0.75);
+            // Add legend
+            var myLegend = chart.addLegend(860, 112, 75, 375, 'Right');
+            chart.draw();
+            // Add title
+            svg.append('text')
+                .attr('x', chart._xPixels() + chart._widthPixels() / 2)
+                .attr('y', chart._yPixels() - 20)
+                .style('text-anchor', 'middle')
+                .text('Average Weight Scores Most Home Runs');
+            chart.legends = [];
+            svg.selectAll('title_text')
+                .data(['Click legend to', 'filter handedness:'])
+                .enter()
+                .append('text')
+                .attr('x', 875)
+                .attr('y', function (d, i) {
+                    return 90 + i * 14;
+                })
+                .style('font-family', 'sans-serif')
+                .style('font-size', '10px')
+                .style('color', 'Black')
+                .text(function (d) {
+                    return d;
+                });
+            // Get unique values by 'handedness'
+            var filterValues = dimple.getUniqueValues(data, 'handedness');
+            myLegend.shapes
+                .selectAll('rect')
+                // Add click option to each legend rectangle
+                .on('click', function (e) {
+                    var hide = false;
+                    var newFilters = [];
+                    filterValues.forEach(function (f) {
+                        if (f === e.aggField.slice(-1)[0]) {
+                            hide = true;
+                        } else {
+                            newFilters.push(f);
+                        }
+                    });
+                    // Hide or show
+                    if (hide) {
+                        d3
+                            .select(this)
+                            .style('opacity', 0.2);
+                    } else {
+                        newFilters.push(e.aggField.slice(-1)[0]);
+                        d3
+                            .select(this)
+                            .style('opacity', 0.8);
+                    }
+                    filterValues = newFilters;
+                    // Filter using newFilters
+                    chart.data = dimple.filterData(data, 'handedness', filterValues);
+                    chart.draw(800);
+                });
+        });
+    </script>
+</div>
+</body>
