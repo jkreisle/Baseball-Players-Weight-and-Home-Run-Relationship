@@ -20,7 +20,7 @@ I wanted to explore a baseball dataset containing:
 - batting average
 - home runs. 
 
-I chose to create a visualization using d3.js and dimple.js because ___.
+I chose to create a visualization using d3.js and dimple.js because it allowed me to easily chart csv data and communicate my findings .
 
 ## Findings
 
