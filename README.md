@@ -34,17 +34,15 @@ The chart's x axis tracks weight in pounds, and the y axis tracks home run count
 
 The feedback I received on my original chart focused on three main suggestions:
 
-1) The need for more interactivity
+- The need for more interactivity
 
 __Solution:__ I chose to create a visualization using d3.js and dimple.js.
+- A reference line or some other visual showing trend
 
-2) A reference line or some other visual showing trend
+__Solution:__ I added a reference line to the chart where the average players weight occurs. This is at 187 pounds.
+- Improvements to stylistic elements in the code and css
 
-__Solution__: I added a reference line to the chart where the average players weight occurs. This is at 187 pounds.
-
-3) Improvements to stylistic elements in the code and css
-
-__Solution__: uniform spacing throughout the code
+__Solution:__ Uniform spacing throughout the code
 
 ## Resources
 
