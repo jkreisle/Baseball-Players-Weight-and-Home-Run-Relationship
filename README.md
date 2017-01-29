@@ -1,12 +1,12 @@
-# Summary:
+# Summary
 
-I chose to create a visualization using a dataset on baseball statistics. The data tracks a players name, handedness (right, left, or both handed), height, weight, batting average, and home runs. The visualization helps to show that players with weights around average weight scored the most amount of home runs.
+I chose to create a visualization using d3.js and dimple.js on a dataset of baseball statistics. The data tracks a players name, handedness (right, left, or both handed), height, weight, batting average, and home runs. The visualization helps to show that players with weights around average weight scored the most amount of home runs.
 
-## Design:
+## Design
 
 The chart's x axis tracks weight in pounds, and the y axis tracks home run count. The size of each dot is relative to the players batting average, where a player with a higher batting average will have a larger dot. A scatterplot was chosen as it was found to show the spread of data most effectively. The data is color coded based on handedness and can be filtered using the interactive legend. 
 
-## Feedback:
+## Feedback
 
 The feedback I received on my original chart focused on three main suggestions:
 
@@ -20,7 +20,7 @@ In addition, I was able to add a reference line to the chart where the average p
 
 Improvements in stylistic elements were accomplished by ensuring uniformity in spacing throughout the code. 
 
-## Resources:
+## Resources
 
 	1) https://github.com/PMSI-AlignAlytics/dimple/wiki
 	2) http://dimplejs.org/examples_index.html
