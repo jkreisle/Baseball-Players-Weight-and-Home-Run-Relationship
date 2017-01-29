@@ -36,13 +36,13 @@ The feedback I received on my original chart focused on three main suggestions:
 
 - The need for more interactivity
 
-__Solution:__ I chose to create a visualization using d3.js and dimple.js.
+    Solution: I chose to create a visualization using d3.js and dimple.js.
 - A reference line or some other visual showing trend
 
-__Solution:__ I added a reference line to the chart where the average players weight occurs. This is at 187 pounds.
+    Solution: I added a reference line to the chart where the average players weight occurs. This is at 187 pounds.
 - Improvements to stylistic elements in the code and css
 
-__Solution:__ Uniform spacing throughout the code
+    Solution: Uniform spacing throughout the code
 
 ## Resources
 
