@@ -1,3 +1,5 @@
+Click link for visualization: http://bl.ocks.org/jkreisle/73323bc6ba757f64c012dbdccb4c1922
+
 ## Objective
 
 Determine the relationship between a baseball player's weight and home runs
