@@ -6,21 +6,21 @@ Determine the relationship between a baseball player's weight and home runs
 
 ###Skills applied
 
-- Javascript, in particular d3.js and dimple.js
-- CSS
-- Github collaboration
-- Usability: Made interactive graph and legend so user can more easily explore data
+    - Javascript, in particular d3.js and dimple.js
+    - CSS
+    - Github collaboration
+    - Usability: Made interactive graph and legend so user can more easily explore data
 
 ## Summary
 
 I wanted to explore a baseball dataset containing:
 
-- player's name
-- handedness (right, left, both)
-- height
-- weight
-- batting average
-- home runs. 
+    - player's name
+    - handedness (right, left, both)
+    - height
+    - weight
+    - batting average
+    - home runs. 
 
 I chose to create a visualization using d3.js and dimple.js because it allowed me to easily chart csv data and communicate my findings .
 
@@ -36,15 +36,15 @@ The chart's x axis tracks weight in pounds, and the y axis tracks home run count
 
 The feedback I received on my original chart focused on three main suggestions:
 
-- The need for more interactivity
+    - The need for more interactivity
 
-    Solution: I chose to create a visualization using d3.js and dimple.js.
-- A reference line or some other visual showing trend
+        Solution: I chose to create a visualization using d3.js and dimple.js.
+    - A reference line or some other visual showing trend
 
-    Solution: I added a reference line to the chart where the average players weight occurs. This is at 187 pounds.
-- Improvements to stylistic elements in the code and css
+        Solution: I added a reference line to the chart where the average players weight occurs. This is at 187 pounds.
+    - Improvements to stylistic elements in the code and css
 
-    Solution: Uniform spacing throughout the code
+        Solution: Uniform spacing throughout the code
 
 ## Resources
 
